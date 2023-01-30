@@ -5,7 +5,9 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleContactsApp", "ConsoleContactsApp\ConsoleContactsApp.csproj", "{D63F3441-5AD2-42F8-988B-9A7A10182313}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfContactsApp", "WpfContactsApp\WpfContactsApp.csproj", "{B7D642C1-B33B-4442-81ED-1B271192864F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfContactsApp", "WpfContactsApp\WpfContactsApp.csproj", "{B7D642C1-B33B-4442-81ED-1B271192864F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleContactsApp.Test", "ConsoleContactsApp.Test\ConsoleContactsApp.Test.csproj", "{D17424ED-1121-4A4C-A550-C58A5FC1A6C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{B7D642C1-B33B-4442-81ED-1B271192864F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7D642C1-B33B-4442-81ED-1B271192864F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7D642C1-B33B-4442-81ED-1B271192864F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D17424ED-1121-4A4C-A550-C58A5FC1A6C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D17424ED-1121-4A4C-A550-C58A5FC1A6C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D17424ED-1121-4A4C-A550-C58A5FC1A6C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D17424ED-1121-4A4C-A550-C58A5FC1A6C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

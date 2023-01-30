@@ -4,7 +4,7 @@ using ConsoleContactsApp.Models;
 
 namespace ConsoleContactsApp.Services
 {
-    internal class FileService
+    public class FileService
     {
         private string filePath = $@"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\ConsoleAppContacts.json";
         private List<ContactModel> contacts;
@@ -39,12 +39,6 @@ namespace ConsoleContactsApp.Services
 
         public List<ContactModel> AllContacts()
         {
-            //var items = new List<ContactModel>();
-            //foreach (var contact in contacts)
-            //    items.Add(contact);
-
-            //return items;
-
             return contacts;
         }
 

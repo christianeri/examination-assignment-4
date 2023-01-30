@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleContactsApp.Models
 {
-    internal class ContactModel : IContact
+    public class ContactModel : IContact
     {
         public Guid Id { get; set; }
         public string FirstName { get; set; }
