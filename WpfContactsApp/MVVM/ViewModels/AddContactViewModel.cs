@@ -7,17 +7,12 @@ namespace WpfContactsApp.MVVM.ViewModels
 {
     public partial class AddContactViewModel : ObservableObject
     {
-
         private readonly FileService fileService;
 
         public AddContactViewModel()
         {
             fileService = new FileService();
         }
-
-        [ObservableProperty]
-        private string pageTitle = "Add Contacts";
-
 
         [ObservableProperty]
         private string firstName = string.Empty;
@@ -29,6 +24,8 @@ namespace WpfContactsApp.MVVM.ViewModels
         private string phone = string.Empty;
         [ObservableProperty]
         private string streetAddress = string.Empty;
+
+
 
         [RelayCommand]
         private void Add()
@@ -43,6 +40,7 @@ namespace WpfContactsApp.MVVM.ViewModels
             });
             ClearForm();
         }
+
 
         private void ClearForm()
         {

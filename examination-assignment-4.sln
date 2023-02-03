@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleContactsApp", "Conso
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfContactsApp", "WpfContactsApp\WpfContactsApp.csproj", "{B7D642C1-B33B-4442-81ED-1B271192864F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleContactsApp.Test", "ConsoleContactsApp.Test\ConsoleContactsApp.Test.csproj", "{D17424ED-1121-4A4C-A550-C58A5FC1A6C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleContactsApp.Tests__MSTest", "ConsoleContactsApp.Test\ConsoleContactsApp.Tests__MSTest.csproj", "{D17424ED-1121-4A4C-A550-C58A5FC1A6C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfContactsApp.Tests__xUnit", "WpfContactsApp.Test\WpfContactsApp.Tests__xUnit.csproj", "{AC66101D-2677-4A64-8E95-AAB4AA62655B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{D17424ED-1121-4A4C-A550-C58A5FC1A6C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D17424ED-1121-4A4C-A550-C58A5FC1A6C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D17424ED-1121-4A4C-A550-C58A5FC1A6C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC66101D-2677-4A64-8E95-AAB4AA62655B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC66101D-2677-4A64-8E95-AAB4AA62655B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC66101D-2677-4A64-8E95-AAB4AA62655B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC66101D-2677-4A64-8E95-AAB4AA62655B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

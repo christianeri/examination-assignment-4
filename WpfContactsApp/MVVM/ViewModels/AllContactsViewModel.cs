@@ -18,9 +18,6 @@ namespace WpfContactsApp.MVVM.ViewModels
         }
 
         [ObservableProperty]
-        private string pageTitle = "All Contacts";
-
-        [ObservableProperty]
         private ObservableCollection<ContactModel> contacts = new ObservableCollection<ContactModel>();
 
         [ObservableProperty]
