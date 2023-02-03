@@ -16,5 +16,10 @@ namespace WpfContactsApp.MVVM.ViewModels
 
         [RelayCommand]
         private void GoToAllContacts() => CurrentViewModel = new AllContactsViewModel();
+
+        public void RefreshView()
+        {
+            GoToAllContacts();  
+        }
     }
 }

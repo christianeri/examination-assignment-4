@@ -3,17 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using WpfContactsApp.MVVM.Models;
 
 namespace WpfContactsApp.Services
 {
     public class FileService
     {
-        //private string FilePath { get; set; } = null!;
         private string filePath = @$"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\WpfContacts.json";
         private List<ContactModel> contacts;
 
@@ -21,8 +16,6 @@ namespace WpfContactsApp.Services
         {
             ReadFromFile();
         }
-
-
 
 
 
@@ -54,8 +47,6 @@ namespace WpfContactsApp.Services
 
 
 
-
-
         private void SaveToFile()
         {
             using var sw = new StreamWriter(filePath);
@@ -67,8 +58,6 @@ namespace WpfContactsApp.Services
             contacts.Add(contact);
             SaveToFile();
         }
-
-
 
 
 
@@ -87,8 +76,6 @@ namespace WpfContactsApp.Services
 
 
 
-
-
         public void RemoveFromList(Guid id)
         {
             var item = contacts.FindAll(x => x.Id == id);
@@ -96,10 +83,5 @@ namespace WpfContactsApp.Services
             contacts.RemoveAt(index);
             SaveToFile();
         }
-
-
-
-
-
     }
 }

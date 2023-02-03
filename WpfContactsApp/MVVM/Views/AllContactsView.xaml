@@ -11,15 +11,15 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
-    <Grid Margin="0 5 0 20">
+    <Grid Margin="0 0 25 0">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
-            <!--<RowDefinition Height="60"/>-->
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Text="Kontaktlista" FontSize="22" FontWeight="Medium" Margin="0 0 0 10"/>
+        <TextBlock Grid.Row="0" Text="Kontakter" FontSize="22" FontWeight="Medium" Margin="0 0 0 0"/>
 
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -36,9 +36,8 @@
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="auto"/>
                             </Grid.ColumnDefinitions>
-                        
-                            <StackPanel Margin="0 5 0 5" HorizontalAlignment="Left">
 
+                            <StackPanel Margin="0 5 0 5" HorizontalAlignment="Left">
                                 <TextBlock Text="{Binding DisplayName}"/>
                                 <TextBlock Text="{Binding Email}"/>
                             </StackPanel>
@@ -54,10 +53,38 @@
                 </ListView.ItemTemplate>
             </ListView>
 
+            <Grid Grid.Column="1" Name="ContactDetails" Visibility="Hidden">
+                
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
 
+                    <StackPanel Grid.Row="0" Margin="0 0 0 0">
+                        <TextBlock Text="Förnamn" Margin="10 0 0 0"/>
+                        <TextBlock Text="{Binding SelectedContact.FirstName}" Margin="10 0 0 10" FontSize="14" FontWeight="Medium"/>
 
+                        <TextBlock Text="Efternamn" Margin="10 0 0 0"/>
+                        <TextBlock Text="{Binding SelectedContact.LastName}" Margin="10 0 0 10" FontSize="14" FontWeight="Medium"/>
 
-            <Grid Grid.Column="1" Name="ContactDetails" Visibility="Hidden" >
+                        <TextBlock Text="E-postadress" Margin="10 0 0 0"/>
+                        <TextBlock Text="{Binding SelectedContact.Email}" Margin="10 0 0 10" FontSize="14" FontWeight="Medium"/>
+
+                        <TextBlock Text="Telefonnummer" Margin="10 0 0 0"/>
+                        <TextBlock Text="{Binding SelectedContact.Phone}" Margin="10 0 0 10" FontSize="14" FontWeight="Medium"/>
+
+                        <TextBlock Text="Adress" Margin="10 0 0 0"/>
+                        <TextBlock Text="{Binding SelectedContact.StreetAddress}" Margin="10 0 0 10" FontSize="14" FontWeight="Medium"/>
+                    </StackPanel>
+ 
+                    <StackPanel Grid.Row="1" Orientation="Horizontal"  Margin="10 0 0 0" VerticalAlignment="Bottom">
+                        <Button Command="{Binding UpdateContactCommand}" Click="Edit_Button_Click" Content="Redigera" Width="60" Padding="5" Margin="0 0 0 0"/>
+                        <Button Command="{Binding RemoveContactCommand}" Click="Remove_Button_Click" Content="Radera" Width="60" Margin="10 0 0 0"/>
+                    </StackPanel>
+                
+            </Grid>
+
+            <Grid Grid.Column="1" Name="EditContactForm" Visibility="Hidden" Margin="10 0 20 0">
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
@@ -65,69 +92,70 @@
                 </Grid.RowDefinitions>
 
 
-                <StackPanel Grid.Row="0" Margin="0 0 30 0">
-
-                    <TextBlock Text="Förnamn" Margin="10 0 0 0"/>
-                    <TextBlock Text="{Binding SelectedContact.FirstName}" Margin="10 0 0 10" FontSize="14" FontWeight="Medium"/>
-
-                    <TextBlock Text="Efternamn" Margin="10 0 0 0"/>
-                    <TextBlock Text="{Binding SelectedContact.LastName}" Margin="10 0 0 10" FontSize="14" FontWeight="Medium"/>
-
-                    <TextBlock Text="E-postadress" Margin="10 0 0 0"/>
-                    <TextBlock Text="{Binding SelectedContact.Email}" Margin="10 0 0 10" FontSize="14" FontWeight="Medium"/>
-
-                    <TextBlock Text="Telefonnummer" Margin="10 0 0 0"/>
-                    <TextBlock Text="{Binding SelectedContact.Phone}" Margin="10 0 0 10" FontSize="14" FontWeight="Medium"/>
-
-                    <TextBlock Text="Adress" Margin="10 0 0 0"/>
-                    <TextBlock Text="{Binding SelectedContact.StreetAddress}" Margin="10 0 0 10" FontSize="14" FontWeight="Medium"/>
-
-
-                </StackPanel>
-
-                <StackPanel Grid.Row="1" Orientation="Horizontal"  Margin="10 0 0 0">
-                    <Button Command="{Binding UpdateContactCommand}" Click="Button_Click"  Content="Redigera" Width="60" Height="25" Margin="0 0 5 5"/>
-                    <Button Command="{Binding RemoveContactCommand}" Content="Radera" Width="60" Height="25"  Margin="0 0 5 5"/>
-                </StackPanel>
-            </Grid>
-
-
-
-            <Grid Grid.Column="1" Name="EditContactForm" Visibility="Hidden" Margin="10 0 20 0">
-
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-
-                <TextBlock Grid.Row="0" Text="Redigera kontakt" FontSize="14" FontWeight="Medium" Margin="0 10 0 10"/>
-
-                <StackPanel Grid.Row="1" Margin="0 0 30 0">
+                <StackPanel Grid.Row="0" Margin="0 0 0 0">
+                
+                    <TextBlock Text="Redigera kontakt" FontSize="14" FontWeight="Medium" Margin="0 10 0 10"/>
 
                     <TextBlock Text="Förnamn"/>
-                    <TextBox Text="{Binding SelectedContact.FirstName}" Padding="3" Margin="0 0 0 10"/>
+                    <TextBox Text="{Binding SelectedContact.FirstName}" Padding="3" Margin="0 2 0 10"/>
 
                     <TextBlock Text="Efternamn"/>
-                    <TextBox Text="{Binding SelectedContact.LastName}" Padding="3" Margin="0 0 0 10"/>
+                    <TextBox Text="{Binding SelectedContact.LastName}" Padding="3" Margin="0 2 0 10"/>
 
                     <TextBlock Text="E-postadress"/>
-                    <TextBox Text="{Binding SelectedContact.Email}" Padding="3" Margin="0 0 0 10"/>
+                    <TextBox Text="{Binding SelectedContact.Email}" Padding="3" Margin="0 2 0 10"/>
 
                     <TextBlock Text="Telefonnummer"/>
-                    <TextBox Text="{Binding SelectedContact.Phone}" Padding="3" Margin="0 0 0 10"/>
+                    <TextBox Text="{Binding SelectedContact.Phone}" Padding="3" Margin="0 2 0 10"/>
 
                     <TextBlock Text="Adress"/>
-                    <TextBox Text="{Binding SelectedContact.StreetAddress}" Padding="3" Margin="0 0 0 10"/>
+                    <TextBox Text="{Binding SelectedContact.StreetAddress}" Padding="3" Margin="0 2 0 10"/>
 
-                    <Button Command="{Binding UpdateContactCommand}" Content="UPPDATERA" Padding="5" Margin="0 15 0 0" VerticalAlignment="Bottom"/>
                 </StackPanel>
-
-
+                
+                    <Button Grid.Row="1" Command="{Binding UpdateContactCommand}" Content="UPPDATERA" Padding="5" Margin="0 0 0 0" VerticalAlignment="Bottom"/>
             </Grid>
-
-
-
         </Grid>
+
+        
+        
+        <Grid Grid.Row="1" Name="AddContactForm" Background="white" Visibility="Hidden">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Text="Add" FontSize="22" FontWeight="Medium" Margin="0 10 0 10"/>
+
+            <StackPanel Grid.Row="1" Margin="0 0 0 0">
+
+                <TextBlock Text="Förnamn"/>
+                <TextBox Text="{Binding FirstName}" Padding="3" Margin="0 0 0 5"/>
+
+                <TextBlock Text="Efternamn"/>
+                <TextBox Text="{Binding LastName}" Padding="3" Margin="0 0 0 5"/>
+
+                <TextBlock Text="E-postadress"/>
+                <TextBox Text="{Binding Email}" Padding="3" Margin="0 0 0 5"/>
+
+                <TextBlock Text="Telefonnummer"/>
+                <TextBox Text="{Binding Phone}" Padding="3" Margin="0 0 0 5"/>
+
+                <TextBlock Text="Adress"/>
+                <TextBox Text="{Binding StreetAddress}" Padding="3" Margin="0 0 0 5"/>
+
+                <Button Command="{Binding AddContactCommand}" Content="LÄGG TILL" Padding="5" Margin="0 15 0 0" VerticalAlignment="Bottom"/>
+            </StackPanel>
+        </Grid>
+
+
+        <Grid Grid.Row="2" Margin="0 0 0 25">
+            <Button Name="GoToAddContactButton" Click="GoToAddContact_Button_Click" Content="Lägg till ny kontakt" Padding="10" Margin="0 15 0 0" Width="auto" HorizontalAlignment="Left"/>
+                <Button Name="GoToAllContactsButton" Click="GoToAllContacts_Button_Click" Content="Tillbaka till kontaktlistan" Padding="10" Margin="0 15 0 0" Width="auto" HorizontalAlignment="Right" Visibility="Hidden"/>
+            <StackPanel Orientation="Horizontal">
+            </StackPanel>
+        </Grid>              
+        
         
     </Grid>
 </UserControl>

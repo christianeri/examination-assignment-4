@@ -25,7 +25,8 @@ namespace WpfContactsApp.MVVM.ViewModels
         [ObservableProperty]
         private string streetAddress = string.Empty;
 
-
+        [ObservableProperty]
+        private string pageTitle = "Lägg till kontakt";
 
         [RelayCommand]
         private void Add()
@@ -40,7 +41,6 @@ namespace WpfContactsApp.MVVM.ViewModels
             });
             ClearForm();
         }
-
 
         private void ClearForm()
         {

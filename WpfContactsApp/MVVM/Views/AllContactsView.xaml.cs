@@ -22,20 +22,9 @@ namespace WpfContactsApp.MVVM.Views
 
 
 
-
-
-        private void btn_Remove_Click(object sender, RoutedEventArgs e)
+        private void Remove_Button_Click(object sender, RoutedEventArgs e)
         {
-            var button = (Button)sender;
-            var contact = (ContactModel)button.DataContext;
-
-            MessageBox.Show($"Är du säker på att du vill ta bort kontakten: {contact.DisplayName}");
-            Remove(contact.Id);
-        }
-
-        private void Remove(Guid id)
-        {
-            fileService.RemoveFromList(id);
+            //ContactDetails.Visibility = Visibility.Hidden;
         }
 
 
@@ -47,7 +36,7 @@ namespace WpfContactsApp.MVVM.Views
             var listViewItem = (Button)sender;
             var contact = (ContactModel)listViewItem.DataContext;
 
-            MessageBox.Show(contact.DisplayName);
+            //MessageBox.Show(contact.DisplayName);
         }
 
 
@@ -63,16 +52,37 @@ namespace WpfContactsApp.MVVM.Views
 
 
 
- 
 
-
-
-
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Edit_Button_Click(object sender, RoutedEventArgs e)
         {
             ContactDetails.Visibility = Visibility.Hidden;
             EditContactForm.Visibility= Visibility.Visible; 
+        }
+
+
+
+
+
+        private void GoToAddContact_Button_Click(object sender, RoutedEventArgs e)
+        {
+            ContactDetails.Visibility = Visibility.Hidden;
+            EditContactForm.Visibility = Visibility.Hidden;
+            AddContactForm.Visibility = Visibility.Visible;
+            GoToAllContactsButton.Visibility = Visibility.Visible;
+            GoToAddContactButton.Visibility = Visibility.Hidden;
+        }
+
+
+
+
+
+        private void GoToAllContacts_Button_Click(object sender, RoutedEventArgs e)
+        {
+            AddContactForm.Visibility = Visibility.Hidden;
+            EditContactForm.Visibility = Visibility.Hidden;
+            ContactDetails.Visibility = Visibility.Hidden;
+            GoToAllContactsButton.Visibility = Visibility.Hidden;
+            GoToAddContactButton.Visibility = Visibility.Visible;
         }
     }
 }

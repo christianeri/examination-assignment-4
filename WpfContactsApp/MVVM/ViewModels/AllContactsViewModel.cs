@@ -27,13 +27,51 @@ namespace WpfContactsApp.MVVM.ViewModels
 
 
 
+
+
+        [ObservableProperty]
+        private string firstName = string.Empty;
+        [ObservableProperty]
+        private string lastName = string.Empty;
+        [ObservableProperty]
+        private string email = string.Empty;
+        [ObservableProperty]
+        private string phone = string.Empty;
+        [ObservableProperty]
+        private string streetAddress = string.Empty;
+
+        [RelayCommand]
+        private void AddContact()
+        {
+            fileService.AddToList(new ContactModel
+            {
+                FirstName = FirstName,
+                LastName = LastName,
+                Email = Email,
+                Phone = Phone,
+                StreetAddress = StreetAddress
+            });
+            ClearForm();
+        }
+        private void ClearForm()
+        {
+            FirstName = string.Empty;
+            LastName = string.Empty;
+            Email = string.Empty;
+            Phone = string.Empty;
+            StreetAddress = string.Empty;
+        }
+
+
+
+
+
         [RelayCommand]
         private void UpdateContact()
         {
-            MessageBox.Show($"Vald kontakt: {selectedContact.DisplayName}");
             Update(selectedContact.Id, selectedContact);
-
         }
+
         private void Update(Guid id, ContactModel contact)
         {
             fileService.UpdateListItem(id, contact);
@@ -46,13 +84,17 @@ namespace WpfContactsApp.MVVM.ViewModels
         [RelayCommand]
         private void RemoveContact()
         {
-            MessageBox.Show($"Är du säker på att du vill ta bort kontakten: {selectedContact.DisplayName}");
-            Remove(selectedContact.Id);
+            if (MessageBox.Show("Är du säker på att du vill ta bort kontakten?",
+                "Confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                Remove(selectedContact.Id);
+            }
+            else { }
+            
         }
         private void Remove(Guid id)
         {
             fileService.RemoveFromList(id);
         }
-
     }
 }
