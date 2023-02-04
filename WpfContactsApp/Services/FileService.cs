@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Windows;
 using WpfContactsApp.MVVM.Models;
 
 namespace WpfContactsApp.Services
@@ -67,9 +68,17 @@ namespace WpfContactsApp.Services
         {
             var item = contacts.FindAll(x => x.Id == id);
             var index = contacts.FindIndex(item => item.Id == id);
-            contacts.RemoveAt(index);
-            contacts.Insert(index, contact);
-            SaveToFile();
+            
+            try 
+            {
+                contacts.RemoveAt(index);
+                contacts.Insert(index, contact);
+                SaveToFile();
+            }
+            catch 
+            {
+                
+            }
         }
 
 

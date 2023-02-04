@@ -69,7 +69,15 @@ namespace WpfContactsApp.MVVM.ViewModels
         [RelayCommand]
         private void UpdateContact()
         {
-            Update(selectedContact.Id, selectedContact);
+            try
+            {
+                Update(selectedContact.Id, selectedContact);    
+            }
+            catch
+            {
+                Error();
+            }
+
         }
 
         private void Update(Guid id, ContactModel contact)
@@ -79,19 +87,28 @@ namespace WpfContactsApp.MVVM.ViewModels
 
 
 
+        private void Error()
+        {
+            MessageBox.Show("Fel");
+        }
+
 
 
         [RelayCommand]
         private void RemoveContact()
         {
-            if (MessageBox.Show("Är du säker på att du vill ta bort kontakten?",
-                "", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
-            {
+            //if (MessageBox.Show("Är du säker på att du vill ta bort kontakten?",
+            //    "", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            //{
                 Remove(selectedContact.Id);
-            }
-            else { }
-            
+                contacts.Remove(selectedContact);
+            //}
+            //else { }
+
+            //    //REFRESH MAIN VIEW (FUNGERAR INTE)
+            //    //MainViewModel.Instance.GoToAllContacts();
         }
+
         private void Remove(Guid id)
         {
             fileService.RemoveFromList(id);

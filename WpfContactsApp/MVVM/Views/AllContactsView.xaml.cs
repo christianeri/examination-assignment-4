@@ -22,12 +22,6 @@ namespace WpfContactsApp.MVVM.Views
 
 
 
-
-
-
-
-
-
         private void ListView_Selected(object sender, RoutedEventArgs e)
         {
             var listViewItem = (Button)sender;
@@ -46,10 +40,6 @@ namespace WpfContactsApp.MVVM.Views
 
 
 
-        private void Remove_Button_Click(object sender, RoutedEventArgs e)
-        {
-            //ContactDetails.Visibility = Visibility.Hidden;
-        }
 
         private void Edit_Button_Click(object sender, RoutedEventArgs e)
         {
@@ -60,43 +50,35 @@ namespace WpfContactsApp.MVVM.Views
         private void EditFormButton_Click(object sender, RoutedEventArgs e)
         {
             EditContactForm.Visibility = Visibility.Hidden;
+            ContactDetails.Visibility = Visibility.Visible;
+        }
+
+        private void CancelEdit_Button_Click(object sender, RoutedEventArgs e)
+        {
+            EditContactForm.Visibility = Visibility.Hidden;
+            ContactDetails.Visibility = Visibility.Visible;
         }
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-        private void GoToAddContact_Button_Click(object sender, RoutedEventArgs e)
+        private void Remove_Button_Click(object sender, RoutedEventArgs e)
         {
             //ContactDetails.Visibility = Visibility.Hidden;
-            //EditContactForm.Visibility = Visibility.Hidden;
-            //AddContactForm.Visibility = Visibility.Visible;
-            //GoToAllContactsButton.Visibility = Visibility.Visible;
-            //GoToAddContactButton.Visibility = Visibility.Hidden;
+            RemoveContactGatekeeper.Visibility = Visibility.Visible;
         }
 
-
-
-
-
-        private void GoToAllContacts_Button_Click(object sender, RoutedEventArgs e)
+        private void RemoveGatekeeperYesButton_Click(object sender, RoutedEventArgs e)
         {
-            //AddContactForm.Visibility = Visibility.Hidden;
-            //EditContactForm.Visibility = Visibility.Hidden;
-            //ContactDetails.Visibility = Visibility.Hidden;
-            //GoToAllContactsButton.Visibility = Visibility.Hidden;
-            //GoToAddContactButton.Visibility = Visibility.Visible;
+            RemoveContactGatekeeper.Visibility = Visibility.Hidden;
+            ContactDetails.Visibility = Visibility.Hidden;
         }
+
+        private void RemoveGatekeeperNoButton_Click(object sender, RoutedEventArgs e)
+        {
+            RemoveContactGatekeeper.Visibility = Visibility.Hidden;
+        }
+
     }
 }
