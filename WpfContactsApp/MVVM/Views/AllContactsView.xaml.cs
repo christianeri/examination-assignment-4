@@ -22,10 +22,7 @@ namespace WpfContactsApp.MVVM.Views
 
 
 
-        private void Remove_Button_Click(object sender, RoutedEventArgs e)
-        {
-            //ContactDetails.Visibility = Visibility.Hidden;
-        }
+
 
 
 
@@ -39,10 +36,6 @@ namespace WpfContactsApp.MVVM.Views
             //MessageBox.Show(contact.DisplayName);
         }
 
-
-
-
-
         private void ListView_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             EditContactForm.Visibility = Visibility.Hidden;
@@ -53,11 +46,32 @@ namespace WpfContactsApp.MVVM.Views
 
 
 
+        private void Remove_Button_Click(object sender, RoutedEventArgs e)
+        {
+            //ContactDetails.Visibility = Visibility.Hidden;
+        }
+
         private void Edit_Button_Click(object sender, RoutedEventArgs e)
         {
             ContactDetails.Visibility = Visibility.Hidden;
-            EditContactForm.Visibility= Visibility.Visible; 
+            EditContactForm.Visibility = Visibility.Visible;
         }
+
+        private void EditFormButton_Click(object sender, RoutedEventArgs e)
+        {
+            EditContactForm.Visibility = Visibility.Hidden;
+        }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -65,11 +79,11 @@ namespace WpfContactsApp.MVVM.Views
 
         private void GoToAddContact_Button_Click(object sender, RoutedEventArgs e)
         {
-            ContactDetails.Visibility = Visibility.Hidden;
-            EditContactForm.Visibility = Visibility.Hidden;
-            AddContactForm.Visibility = Visibility.Visible;
-            GoToAllContactsButton.Visibility = Visibility.Visible;
-            GoToAddContactButton.Visibility = Visibility.Hidden;
+            //ContactDetails.Visibility = Visibility.Hidden;
+            //EditContactForm.Visibility = Visibility.Hidden;
+            //AddContactForm.Visibility = Visibility.Visible;
+            //GoToAllContactsButton.Visibility = Visibility.Visible;
+            //GoToAddContactButton.Visibility = Visibility.Hidden;
         }
 
 
@@ -78,11 +92,11 @@ namespace WpfContactsApp.MVVM.Views
 
         private void GoToAllContacts_Button_Click(object sender, RoutedEventArgs e)
         {
-            AddContactForm.Visibility = Visibility.Hidden;
-            EditContactForm.Visibility = Visibility.Hidden;
-            ContactDetails.Visibility = Visibility.Hidden;
-            GoToAllContactsButton.Visibility = Visibility.Hidden;
-            GoToAddContactButton.Visibility = Visibility.Visible;
+            //AddContactForm.Visibility = Visibility.Hidden;
+            //EditContactForm.Visibility = Visibility.Hidden;
+            //ContactDetails.Visibility = Visibility.Hidden;
+            //GoToAllContactsButton.Visibility = Visibility.Hidden;
+            //GoToAddContactButton.Visibility = Visibility.Visible;
         }
     }
 }

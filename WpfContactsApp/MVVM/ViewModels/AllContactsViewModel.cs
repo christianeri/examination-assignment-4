@@ -85,7 +85,7 @@ namespace WpfContactsApp.MVVM.ViewModels
         private void RemoveContact()
         {
             if (MessageBox.Show("Är du säker på att du vill ta bort kontakten?",
-                "Confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                "", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 Remove(selectedContact.Id);
             }

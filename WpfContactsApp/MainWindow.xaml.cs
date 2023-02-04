@@ -21,5 +21,17 @@ namespace WpfContactsApp
         {
             InitializeComponent();
         }
+
+        private void AddContactsViewButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddContactViewButton.Visibility = Visibility.Hidden;
+            ContactsViewButton.Visibility = Visibility.Visible;
+        }
+
+        private void ContacsViewButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddContactViewButton.Visibility = Visibility.Visible;
+            ContactsViewButton.Visibility = Visibility.Hidden;
+        }
     }
 }

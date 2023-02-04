@@ -11,7 +11,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
-    <Grid Margin="0 0 25 0">
+    <Grid Margin="0 0 0 0">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -21,7 +21,9 @@
 
         <TextBlock Grid.Row="0" Text="Kontakter" FontSize="22" FontWeight="Medium" Margin="0 0 0 0"/>
 
-        <Grid Grid.Row="1">
+        <Button Content="?" Height="20" Width="18" ToolTip="Dubbelklicka på en kontakt för att visa detaljer" HorizontalAlignment="center" Margin="0 5 18 0"/>
+
+        <Grid Grid.Row="1" Margin="0 10 0 0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -54,7 +56,6 @@
             </ListView>
 
             <Grid Grid.Column="1" Name="ContactDetails" Visibility="Hidden">
-                
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="*"/>
@@ -78,13 +79,12 @@
                     </StackPanel>
  
                     <StackPanel Grid.Row="1" Orientation="Horizontal"  Margin="10 0 0 0" VerticalAlignment="Bottom">
-                        <Button Command="{Binding UpdateContactCommand}" Click="Edit_Button_Click" Content="Redigera" Width="60" Padding="5" Margin="0 0 0 0"/>
-                        <Button Command="{Binding RemoveContactCommand}" Click="Remove_Button_Click" Content="Radera" Width="60" Margin="10 0 0 0"/>
+                        <Button Command="{Binding UpdateContactCommand}" Click="Edit_Button_Click" Content="Redigera" Width="80" Padding="10" Margin="0 0 0 0"/>
+                        <Button Command="{Binding RemoveContactCommand}" Click="Remove_Button_Click" Content="Radera" Width="80" Margin="10 0 0 0"/>
                     </StackPanel>
-                
             </Grid>
 
-            <Grid Grid.Column="1" Name="EditContactForm" Visibility="Hidden" Margin="10 0 20 0">
+            <Grid Grid.Column="1" Name="EditContactForm" Visibility="Hidden" Margin="10 0 0 0">
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
@@ -113,7 +113,7 @@
 
                 </StackPanel>
                 
-                    <Button Grid.Row="1" Command="{Binding UpdateContactCommand}" Content="UPPDATERA" Padding="5" Margin="0 0 0 0" VerticalAlignment="Bottom"/>
+                    <Button Grid.Row="1" Command="{Binding UpdateContactCommand}" Click="EditFormButton_Click" Content="UPPDATERA" Padding="10" Margin="0 0 0 0" VerticalAlignment="Bottom"/>
             </Grid>
         </Grid>
 
@@ -125,7 +125,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Grid.Row="0" Text="Add" FontSize="22" FontWeight="Medium" Margin="0 10 0 10"/>
+            <TextBlock Grid.Row="0" Text="Add" FontSize="22" FontWeight="Medium" Margin="0 10 0 0"/>
 
             <StackPanel Grid.Row="1" Margin="0 0 0 0">
 
@@ -144,12 +144,12 @@
                 <TextBlock Text="Adress"/>
                 <TextBox Text="{Binding StreetAddress}" Padding="3" Margin="0 0 0 5"/>
 
-                <Button Command="{Binding AddContactCommand}" Content="LÄGG TILL" Padding="5" Margin="0 15 0 0" VerticalAlignment="Bottom"/>
+                <Button Command="{Binding AddContactCommand}" Content="LÄGG TILL" Padding="10" Margin="0 15 0 0" VerticalAlignment="Bottom"/>
             </StackPanel>
         </Grid>
 
 
-        <Grid Grid.Row="2" Margin="0 0 0 25">
+        <Grid Grid.Row="2" Margin="0 0 0 0" Visibility="Hidden">
             <Button Name="GoToAddContactButton" Click="GoToAddContact_Button_Click" Content="Lägg till ny kontakt" Padding="10" Margin="0 15 0 0" Width="auto" HorizontalAlignment="Left"/>
                 <Button Name="GoToAllContactsButton" Click="GoToAllContacts_Button_Click" Content="Tillbaka till kontaktlistan" Padding="10" Margin="0 15 0 0" Width="auto" HorizontalAlignment="Right" Visibility="Hidden"/>
             <StackPanel Orientation="Horizontal">
