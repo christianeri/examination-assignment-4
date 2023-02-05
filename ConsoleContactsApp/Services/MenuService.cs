@@ -51,9 +51,14 @@ namespace ConsoleContactsApp.Services
                 case "4":
                     OptionFour();
                     break;
+                
                 case "5":
                     OptionFive();
-                    break;
+                break;
+                
+                case "6":
+                    OptionSix();
+                break;
             }
         }
 
@@ -320,6 +325,21 @@ namespace ConsoleContactsApp.Services
                 WelcomeMenu();
             }
         }
-    }
 
+
+
+
+
+        private void OptionSix()
+        {
+            ExitProgram();
+        }
+
+            void ExitProgram()
+        {
+            Console.Clear();
+            Console.WriteLine("Programmet avslutat");
+            Environment.Exit(0);
+        }
+    }
 }
